@@ -1,6 +1,8 @@
 import { ZodError } from "zod"
 
-export function zodFieldErrors<T extends Record<string, unknown>>(error: ZodError<T>): Record<string, string[]> {
+export function zodFieldErrors<T extends Record<string, unknown>>(
+    error: ZodError<T>,
+): Record<string, string[]> {
     const flat = error.flatten().fieldErrors as Record<string, string[] | undefined>
     const result: Record<string, string[]> = {}
 

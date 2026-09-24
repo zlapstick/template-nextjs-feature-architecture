@@ -1,4 +1,6 @@
-export type FieldErrors<Fields extends string = string> = Partial<Record<Fields | "general", string[]>>
+export type FieldErrors<Fields extends string = string> = Partial<
+    Record<Fields | "general", string[]>
+>
 
 export type FormState<Fields extends string = string> = {
     success?: boolean
@@ -15,5 +17,5 @@ export type PaginationMeta = {
 }
 
 export type Result<T> =
-    | { success: true; data: T; meta?: unknown }
+    | { success: true; message?: string; data: T; meta?: unknown }
     | { success: false; message: string; errors?: Record<string, string[]> }
